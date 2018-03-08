@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mysql:
+    container_name: flask_mysql
+    restart: always
+    image: mysql:latest
+    environment:
+    - MYSQL_ROOT_PASSWORD=rootpasswd
+    - MYSQL_DATABASE=gps_wifi
+    - MYSQL_USER=gps_admin
+    - MYSQL_PASSWORD=pass
+    volumes:
+         - /Users/bastienbrunod/Ecole/iot/mysql_data:/var/lib/mysql
+    ports:
+         - "3306:3306/tcp"

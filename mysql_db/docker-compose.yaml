@@ -5,11 +5,18 @@ services:
     restart: always
     image: mysql:latest
     environment:
-    - MYSQL_ROOT_PASSWORD=rootpasswd
-    - MYSQL_DATABASE=gps_wifi
-    - MYSQL_USER=gps_admin
-    - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=rootpasswd
+      - MYSQL_DATABASE=gps_wifi
+      - MYSQL_USER=gps_admin
+      - MYSQL_PASSWORD=pass
     volumes:
-         - /Users/bastienbrunod/Ecole/iot/mysql_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
     ports:
-         - "3306:3306/tcp"
+      - "3306:3306/tcp"
+  mqtt:
+    container_name: mqtt
+    restart: always
+    image: ansi/mosquitto
+    ports:
+      - "1883:1883"
+

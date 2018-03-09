@@ -9,8 +9,8 @@ Dans le projet initial nous comptions utiliser un composant GPS mais le composan
 ### Prérequis et liens utiles
 
 Matériel :
-![Wemos](https://github.com/JulSar/Iot-BigData/tree/master/assets/esp8266-Wemos.jpg)
-![GPS](https://github.com/JulSar/Iot-BigData/tree/master/assets/neo-6m1.jpg)
+![Wemos](https://github.com/JulSar/Iot-BigData/raw/master/assets/esp8266-Wemos.jpg)
+![GPS](https://github.com/JulSar/Iot-BigData/raw/master/assets/neo-6m1.jpg)
 
 Mise en place du serveur node.js
 

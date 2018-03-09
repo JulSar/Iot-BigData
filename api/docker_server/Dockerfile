@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM google/cloud-sdk
 
 RUN apt-get update
 

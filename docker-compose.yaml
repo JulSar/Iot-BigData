@@ -19,7 +19,6 @@ services:
     image: ansi/mosquitto
     ports:
       - "1883:1883"
-
   server:
     container_name: server
     restart: always
@@ -31,15 +30,21 @@ services:
 
     links:
        - mysql:mysql.server
-
-
   api:
     container_name: api_V1
     restart: always
     build:
       context: ./api/docker_api/
       dockerfile: Dockerfile
-
     links:
        - mysql:mysql.server
        - mqtt:mosquitto.server
+  nginx:
+    container_name: iot_nginx
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "5001:80/tcp"
+

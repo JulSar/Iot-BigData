@@ -4,16 +4,20 @@ import rp from 'request-promise';
 
 Vue.use(Vuex);
 
-function getIntensities() {
-  return rp.get('');
+const server = 'http://51.15.208.245:5000';
+
+async function getIntensities() {
+  const response = await rp.get(`${server}/retrieve_all_wifi`, { json: true });
+  return response.data.map(intensity => ({
+    lat: intensity.lat,
+    lng: intensity.lng,
+    value: intensity.signal_strength,
+  }));
 }
 
 export default new Vuex.Store({
   state: {
-    intensities: [
-      { value: -1, lat: 48.866667, lng: 2.333333 },
-      { value: -40, lat: 48.890000, lng: 2.200034 },
-    ],
+    intensities: [],
   },
   mutations: {
     addWifi(state, intensities) {

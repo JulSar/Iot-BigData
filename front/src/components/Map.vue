@@ -16,7 +16,7 @@
     },
     mounted() {
       this.map = L.map('mapid', {
-        center: this.intensities ?
+        center: this.intensities.length ?
           [this.intensities[0].lat, this.intensities[0].lng] : [48.866667, 2.333333],
         zoom: 12,
       });

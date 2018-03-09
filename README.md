@@ -26,4 +26,4 @@ list of all wifi:
 `http://localhost:5000/retrieve_all_wifi`
 
 The current wifi:
-`http://localhost:5000/retrieve_all_wifi`
+`http://localhost:5000/current_wifi`

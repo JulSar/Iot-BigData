@@ -23,19 +23,25 @@ Il est possible de récupérer les données par un module GPS externe branché s
 Installation avec module GPS :
 ![Arduino Setup](https://github.com/JulSar/Iot-BigData/raw/master/assets/arduino_setup.png)
 
-Mise en route du serveur Mosquito
+L'infrastructure (serveur, mysql, mosquito) tourne avec [docker compose](https://docs.docker.com/compose/).
 
-```
-Give the example
-```
+Il suffit de taper `docker-compose up` pour la lancer.
 
-And repeat
+Nous avons une application web pour visualiser l'application.
 
-```
-until finished
-```
+![](https://puu.sh/zDYzZ/b10a7d78c5.png)
 
-Une fois le serveur node.js lancé, vous devriez pouvoir accéder à l'interface de visualisation 
+L'application web est une [application Vue.js](https://vuejs.org/).
+
+Pour la lancer, vous aurez besoin de [NodeJs](https://nodejs.org/en/).
+
+Pour installer les dependances :
+
+`cd front && npm i`
+
+Pour lancer l'application :
+
+`npm run serve`
 
 ## Running the tests
 
@@ -67,50 +73,12 @@ void loop() {
 }
 ```
 
-### And coding style tests
+## Auteurs
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Development
-
-### [front](front)
-
-The web application is a [Vue.js application](https://vuejs.org/).
-
-To run it locally, you need [NodeJs](https://nodejs.org/en/).
-
-To install all dependencies :
-
-`cd front && npm i`
-
-To start a development environment :
-
-`npm run serve`
-
-## Authors
-
-* **Julien Sarrazin** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-Participants au projet
-[contributors](https://github.com/your/project/contributors)
+* **Julien Sarrazin**
+* **Pascal Luttgens**
+* **Mauranne Costier**
+* **Bastien Brunod**
 
 
 ## Sources

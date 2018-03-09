@@ -18,7 +18,7 @@ services:
     restart: always
     image: ansi/mosquitto
     ports:
-      - "1884:1883"
+      - "1883:1883"
   server:
     container_name: server
     restart: always

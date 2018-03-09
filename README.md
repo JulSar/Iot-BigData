@@ -29,7 +29,7 @@ Il suffit de taper `docker-compose up` pour la lancer.
 
 Nous avons une application web pour visualiser l'application.
 
-![](https://puu.sh/zDYzZ/b10a7d78c5.png)
+![](https://puu.sh/zDYQS/32b257049b.jpg)
 
 L'application web est une [application Vue.js](https://vuejs.org/).
 

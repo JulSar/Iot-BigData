@@ -4,14 +4,14 @@ import rp from 'request-promise';
 
 Vue.use(Vuex);
 
-const server = 'http://localhost:5000';
+const server = 'http://51.15.208.245:5000';
 
 async function getIntensities() {
   const response = await rp.get(`${server}/`, { json: true });
   return response.data.map(intensity => ({
-    lat: intensity.latitude,
-    lng: intensity.longitude,
-    value: intensity.signal_strenght,
+    lat: intensity.LATITUDE,
+    lng: intensity.LONGITUDE,
+    value: intensity.signal_intensity,
   }));
 }
 

@@ -4,14 +4,14 @@
 
 <script>
   import L from 'leaflet';
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapActions } from 'vuex';
 
   export default {
     name: 'Map',
     data() {
       return {
         map: undefined,
-        markers: undefined,
+        markers: [],
       };
     },
     mounted() {
@@ -21,7 +21,7 @@
         zoom: 12,
       });
       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(this.map);
-      this.addIntensities();
+      setInterval(this.addIntensities, 5000);
     },
     computed: {
       ...mapGetters([
@@ -30,19 +30,22 @@
     },
     watch: {
       intensities() {
-        this.addIntensities();
+        this.addMarkers();
       },
     },
     methods: {
-      addIntensities() {
+      ...mapActions([
+        'addIntensities',
+      ]),
+      addMarkers() {
         const { intensities } = this;
-        if (!intensities) return;
+        if (!intensities) return [];
 
         if (this.markers) {
           this.markers.forEach(marker => marker.remove());
         }
 
-        this.markers = intensities.map((intensity) => {
+        return intensities.map((intensity) => {
           const marker = this.getMarker(intensity);
           marker.bindTooltip(intensity.value.toString());
           marker.addTo(this.map);
@@ -51,14 +54,14 @@
       },
       getMarker(intensity) {
         let icon;
-        if (intensity.value > -33) {
+        if (intensity.value < 40) {
           icon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
             iconSize: [25, 41],
             iconAnchor: [12, 41],
             popupAnchor: [1, -34],
           });
-        } else if (intensity.value > -66) {
+        } else if (intensity.value < 65) {
           icon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png',
             iconSize: [25, 41],

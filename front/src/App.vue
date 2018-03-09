@@ -7,20 +7,11 @@
 
 <script>
 import Navbar from '@/components/Navbar.vue';
-import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     Navbar,
-  },
-  methods: {
-    ...mapActions([
-      'addIntensities',
-    ]),
-  },
-  created() {
-    this.addIntensities();
   },
 };
 </script>

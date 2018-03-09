@@ -1,10 +1,10 @@
-FROM nginx:alpine
+FROM nginx
 
 MAINTAINER Pascal LUTTGENS<pascal.luttgens@hotmail.fr>
 
 RUN rm -rf /etc/nginx/conf.d
 COPY nginx.conf /etc/nginx
-COPY front /etc/nginx/html/front/
+COPY dist /etc/nginx/html/front/
 
 # Define mountable directories.
 VOLUME ["/var/log/nginx"]

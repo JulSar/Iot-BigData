@@ -15,7 +15,7 @@ L'ensemble des librairies utilisées sont dans le dossier lib.
 Documentation MQTT:
 http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/csprd02/mqtt-v3.1.1-csprd02.html
 
-### Installing
+### Installation
 
 Plusieurs installations sont possibles. Avec le code fournit un simple module ESP8266 seul suffit à aquérir les données.
 Il est possible de récupérer les données par un module GPS externe branché sur le module ou un arduino.
@@ -43,7 +43,7 @@ Pour lancer l'application :
 
 `npm run serve`
 
-## Running the tests
+## Lancer les tests
 
 Voici comment tester le module GPS pour vérifier qu'il récupère bien des données.
 ```C++

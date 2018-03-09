@@ -12,8 +12,6 @@ Matériel :
 ![Wemos](https://github.com/JulSar/Iot-BigData/raw/master/assets/esp8266-Wemos.jpg)
 ![GPS](https://github.com/JulSar/Iot-BigData/raw/master/assets/neo-6m1.jpg)
 
-Mise en place du serveur node.js
-
 L'ensemble des librairies utilisées sont dans le dossier lib.
 Documentation MQTT:
 http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/csprd02/mqtt-v3.1.1-csprd02.html
@@ -75,6 +73,22 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Development
+
+### [front](front)
+
+The web application is a [Vue.js application](https://vuejs.org/).
+
+To run it locally, you need [NodeJs](https://nodejs.org/en/).
+
+To install all dependencies :
+
+`cd front && npm i`
+
+To start a development environment :
+
+`npm run serve`
 
 ## Authors
 

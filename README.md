@@ -1,10 +1,9 @@
 # Iot-BigData
-# Project Title
 
 Ce projet a pour but de fournir en temps réel un indicateur de la qualité des réseaux wifi environnants. Pour ce faire nous utiliserons seulement un module ESP8266 disposant d'un module WIFI et une barre à LED. Le module doit pouvoir se connecter à un réseau pour transmettre les données requeuillis à un serveur Mosquito.
 Dans le projet initial nous comptions utiliser un composant GPS mais le composant etant défectueux nous nous sommes rabbatu vers les API google de géolocalisation.
 
-![Architecture](https://github.com/JulSar/Iot-BigData/tree/master/assets/archi.PNG)
+![Architecture](https://github.com/JulSar/Iot-BigData/raw/master/assets/archi.PNG)
 
 ### Prérequis et liens utiles
 
@@ -24,7 +23,7 @@ Plusieurs installations sont possibles. Avec le code fournit un simple module ES
 Il est possible de récupérer les données par un module GPS externe branché sur le module ou un arduino.
 
 Installation avec module GPS :
-![Arduino Setup](https://github.com/JulSar/Iot-BigData/tree/master/assets/arduino_setup.png)
+![Arduino Setup](https://github.com/JulSar/Iot-BigData/raw/master/assets/arduino_setup.png)
 
 A step by step series of examples that tell you have to get a development env running
 

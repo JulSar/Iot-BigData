@@ -1,0 +1,45 @@
+version: "3"
+services:
+  mysql:
+    container_name: iot_mysql
+    restart: always
+    image: mysql:latest
+    environment:
+    - MYSQL_ROOT_PASSWORD=rootpasswd
+    - MYSQL_DATABASE=gps_wifi
+    - MYSQL_USER=gps_admin
+    - MYSQL_PASSWORD=pass
+    volumes:
+         - ./mysql_db/mysql_data:/var/lib/mysql
+    ports:
+         - "3306:3306/tcp"
+  mqtt:
+    container_name: mqtt
+    restart: always
+    image: ansi/mosquitto
+    ports:
+      - "1883:1883"
+
+  server:
+    container_name: server
+    restart: always
+    build:
+      context: ./api/docker_server/
+      dockerfile: Dockerfile
+    ports:
+        - "5000:5000/tcp"
+
+    links:
+       - mysql:mysql.server
+
+
+  api:
+    container_name: api_V1
+    restart: always
+    build:
+      context: ./api/docker_api/
+      dockerfile: Dockerfile
+
+    links:
+       - mysql:mysql.server
+       - mqtt:mosquitto.server

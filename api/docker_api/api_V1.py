@@ -1,6 +1,4 @@
 import paho.mqtt.client as mqtt
-from flask import request, Flask, Response
-from flask_cors import CORS
 import json
 import uuid
 import os
@@ -9,10 +7,20 @@ import mysql.connector
 from mysql.connector import MySQLConnection, Error
 
 
-conn = mysql.connector.connect(host='localhost',
+conn = mysql.connector.connect(host='mysql.server',
                                        database='gps_wifi',
                                        user='gps_admin',
                                        password='pass')
+
+cursor = conn.cursor()
+cursor.execute("""CREATE TABLE IF NOT EXISTS data(
+  id int(5) NOT NULL AUTO_INCREMENT,
+  LATITUDE float(25) NOT NULL,
+  LONGITUDE float(25) NOT NULL,
+  signal_intensity int(2) NOT NULL,
+  PRIMARY KEY (id)
+);""")
+conn.commit()
 
 def insert_bdd(data):
     data = data.split(",")
@@ -62,5 +70,5 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("localhost", 1883, 60)
+client.connect("mosquitto.server", 1883, 60)
 client.loop_forever()

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from flask import request, Flask, Response
-import pandas as pd
 import mysql.connector
 from mysql.connector import MySQLConnection, Error
 from flask import Flask
@@ -14,7 +13,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-conn = mysql.connector.connect(host='localhost',
+conn = mysql.connector.connect(host='mysql.server',
                                        database='gps_wifi',
                                        user='gps_admin',
                                        password='pass')
@@ -32,6 +31,7 @@ def getAllWifi():
 
     except:
         pass
+        list_wifi = []
     return list_wifi
 
 @app.route('/current_wifi')

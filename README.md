@@ -25,9 +25,7 @@ Il est possible de récupérer les données par un module GPS externe branché s
 Installation avec module GPS :
 ![Arduino Setup](https://github.com/JulSar/Iot-BigData/raw/master/assets/arduino_setup.png)
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+Mise en route du serveur Mosquito
 
 ```
 Give the example
@@ -39,18 +37,36 @@ And repeat
 until finished
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Une fois le serveur node.js lancé, vous devriez pouvoir accéder à l'interface de visualisation 
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+Voici comment tester le module GPS pour vérifier qu'il récupère bien des données.
 ```
-Give an example
+#include <SoftwareSerial.h>
+#include <TinyGPS.h>
+
+SoftwareSerial mySerial(3, 4); // RX, TX
+TinyGPS gps;
+
+void setup()  {
+  mySerial.begin(9600);
+}
+
+void loop() {
+  bool ready = false;
+  if (mySerial.available()) {
+    char c = mySerial.read();
+    if (gps.encode(c)) {
+      ready = true;
+    }
+  }
+
+  // Use actual data
+  if (ready) {
+    // Use `gps` object
+  }
+}
 ```
 
 ### And coding style tests
@@ -77,16 +93,12 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Julien Sarrazin** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Participants au projet
+[contributors](https://github.com/your/project/contributors)
 
-## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+## Sources
 
-## Acknowledgments
-
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+https://www.xarg.org/2016/06/neo6mv2-gps-module-with-arduino/

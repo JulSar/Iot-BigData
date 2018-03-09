@@ -42,7 +42,7 @@ Une fois le serveur node.js lancé, vous devriez pouvoir accéder à l'interface
 ## Running the tests
 
 Voici comment tester le module GPS pour vérifier qu'il récupère bien des données.
-```
+```C++
 #include <SoftwareSerial.h>
 #include <TinyGPS.h>
 
